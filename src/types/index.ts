@@ -183,4 +183,71 @@ export interface HistoricalAuditRecord {
   recurrentVendorsInvolved?: string[];
 }
 
+// ---------------------------------------------------------------------------
+// INTOSAI (ISSAI 200, 300, 400) + COBIT FORENSIC DATA MODELS
+// ---------------------------------------------------------------------------
+export type IntosaiFrameworkType = 
+  | 'INTOSAI-ISSAI-200'  // Financiera: Validación de saldos vs. Ejecución física (malversación, desvíos presupuestarios)
+  | 'INTOSAI-ISSAI-300'  // Gestión: Eficiencia de procesos y análisis de precios históricos (colusión, direccionamiento)
+  | 'INTOSAI-ISSAI-400'  // Sistemas: Análisis de logs, pistas de auditoría y base de datos maestra (nóminas fantasma, alteración)
+  | 'COBIT-5';
+
+export interface ConditionModel {
+  description: string;
+  source_document: string;
+  page_reference: string;
+  archive_token: string;
+}
+
+export interface CriterionModel {
+  law_reference: string;
+  article: string;
+  period_validity: string;
+}
+
+export interface CrossReferenceAlerts {
+  shareholder_overlap: boolean;
+  matched_entities: string[];
+  common_shareholder_id?: string;
+  employee_overlap_detected: boolean;
+}
+
+export interface EffectModel {
+  financial_impact: number;
+  description: string;
+}
+
+export interface IntosaiFindingModel {
+  finding_id: string;
+  type: string;
+  procedure_applied: string;
+  condition: ConditionModel;
+  criterion: CriterionModel;
+  cross_reference_alerts: CrossReferenceAlerts;
+  effect: EffectModel;
+  causa: string;
+  editable_status?: 'PENDING_REVIEW' | 'CONFIRMED' | 'DISMISSED';
+}
+
+export interface ForensicAuditReport {
+  frameworks: string[];
+  scope_period: string;
+  status?: string;
+  findings_matrix: IntosaiFindingModel[];
+}
+
+export interface IntosaiProcessResponse {
+  status: 'SUCCESS' | 'ERROR';
+  report_id: string;
+  archive_token: string;
+  filename_processed: string;
+  storage_synchronization: {
+    postgresql?: string;
+    mongodb?: string;
+    audit_intelligence_usa?: string;
+  };
+  data: ForensicAuditReport;
+}
+
+
 

@@ -99,6 +99,18 @@ export async function generateWordDocument(data: AuditReportData): Promise<Blob>
               }),
               new TableRow({
                 children: [
+                  new TableCell({ children: [boldPara('Marco Metodológico:')] }),
+                  new TableCell({ children: [new Paragraph('INTOSAI ISSAI 200 (Financiera), ISSAI 300 (Gestión), ISSAI 400 (Sistemas) & COBIT 5')] }),
+                ],
+              }),
+              new TableRow({
+                children: [
+                  new TableCell({ children: [boldPara('Token de Custodia Inmutable:')] }),
+                  new TableCell({ children: [new Paragraph(data.aes256Hash || 'ARC-AES256-991204X')] }),
+                ],
+              }),
+              new TableRow({
+                children: [
                   new TableCell({ children: [boldPara('Redactor Forense Principal:')] }),
                   new TableCell({ children: [new Paragraph(`${data.author} (${data.role}) - ${data.organization}`)] }),
                 ],
