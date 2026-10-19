@@ -1,0 +1,7 @@
+hallazgo_forense = {
+    "Tipo":"Forense",
+    "Riesgo":"Alto",
+    "Bandera":"Documentación faltante",
+    "Impacto":"Limitación de trazabilidad",
+    "Acción":"Validación adicional"
+}

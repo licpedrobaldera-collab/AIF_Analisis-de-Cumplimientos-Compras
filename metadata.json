@@ -1,0 +1,6 @@
+{
+  "name": "BASA V7 - SaaS de Auditoría Forense de Compras Públicas & DGCP Intelligence",
+  "description": "Plataforma SaaS multitenant de auditoría forense e inteligencia de compras públicas en tiempo real e histórico de 10 años. Compatible con DGCP (República Dominicana) y portales internacionales, peritaje IA de pliegos, detección de incumplimientos normativos, sincronización bidireccional AES-256 con Audit Intelligence USA, generador editable de informes Word/PDF con firma digital y cumplimiento SOC2/HIPAA.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
