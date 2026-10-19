@@ -93,3 +93,41 @@ export interface HistoricalPriceItem {
   historicalPeriod: string;
   deviationPercent: number;
 }
+
+export interface ThreatModelMeta {
+  pais: CountryCode | string;
+  periodo_fiscal: string;
+  sistema_origen: string;
+}
+
+export interface BudgetExecutionDeviation {
+  desvio_detectado: boolean;
+  monto_alerta: number;
+  moneda?: CurrencyCode;
+  porcentaje_desvio?: number;
+  descripcion: string;
+}
+
+export interface EarlyFraudAlert {
+  id: string;
+  nivel_riesgo: 'CRITICO' | 'ALTO' | 'MEDIO' | 'BAJO';
+  tipo: 'Fraccionamiento' | 'Colusion' | 'Sobreprecio' | 'Direccionamiento' | 'Tiempo_Anomalo';
+  evidencia_origen: string;
+  norma_infringida: string;
+}
+
+export interface ThreatEngineOutput {
+  meta: ThreatModelMeta;
+  ejecucion_presupuestaria: BudgetExecutionDeviation;
+  alertas_tempranas_fraude: EarlyFraudAlert[];
+  alertas_dashboard: {
+    critico_colusion_fraccionamiento: string;
+    advertencia_desviacion_presupuestaria: string;
+    seguridad_log_acceso: string;
+  };
+  especificaciones_coincidencia_proveedor_pct: number;
+  proveedor_coincidente?: string;
+  publicado_dia_no_laborable: boolean;
+  plazo_dias_otorgado: number;
+  plazo_minimo_legal: number;
+}
