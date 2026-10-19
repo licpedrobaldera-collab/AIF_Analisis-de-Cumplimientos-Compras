@@ -7,6 +7,7 @@ import { PrefillAndPoliciesView } from './components/PrefillAndPoliciesView';
 import { HistoricalPriceView } from './components/HistoricalPriceView';
 import { SecurityAndSyncView } from './components/SecurityAndSyncView';
 import { HistoricalAuditsFolderView } from './components/HistoricalAuditsFolderView';
+import { WorkpapersFindingsView } from './components/WorkpapersFindingsView';
 import { NotificationCenter } from './components/NotificationCenter';
 import { CollusionToast } from './components/CollusionToast';
 import { CountryCode, CurrencyCode, LanguageCode, UserRole, TenderItem, RealtimeCollusionAlert, ForensicFinding } from './types';
@@ -284,6 +285,22 @@ export default function App() {
             currency={currency}
             onInjectFindingToAnalysis={handleInjectFindingToAnalysis}
             onSelectTenderForAudit={handleAuditTenderFromNotification}
+          />
+        )}
+
+        {activeTab === 'workpapers' && (
+          <WorkpapersFindingsView
+            country={country}
+            currency={currency}
+            onGoToEditorWithFinding={(snippet) => {
+              setReportData(prev => ({
+                ...prev,
+                executiveSummary: `${prev.executiveSummary}\n\n${snippet}`,
+              }));
+              setActiveTab('editor');
+              showToast('Hallazgo pericial inyectado en el Informe Word Editable.');
+            }}
+            onNotify={showToast}
           />
         )}
 

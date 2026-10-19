@@ -249,5 +249,89 @@ export interface IntosaiProcessResponse {
   data: ForensicAuditReport;
 }
 
+export interface ProcedureTest {
+  id: string;
+  name: string;
+  description: string;
+  procedure_type: 'CRUCE_ACCIONISTAS' | 'DESVIACION_PRECIOS' | 'PLAZO_LICITACION' | 'NOMINA_VS_PROVEEDORES' | 'MARCA_DIRIGIDA' | 'ARQUEO_PRESUPUESTO';
+  result: 'PASS' | 'FAIL' | 'NOT_TESTED';
+  notes: string;
+  evidence_ref?: string;
+  tested_by?: string;
+  tested_at?: string;
+}
+
+export interface CoachingNote {
+  id: string;
+  author: string;
+  role: string;
+  date: string;
+  content: string;
+  status: 'ABIERTA' | 'RESUELTA';
+  resolved_at?: string;
+}
+
+export interface FindingSheet {
+  title: string;
+  finding_code: string;
+  detected_procedure: string;
+  condition: {
+    facts: string;
+    document_source: string;
+    page_paragraph: string;
+    hash_sha256: string;
+    archive_token: string;
+  };
+  criterion: {
+    law_and_decree: string;
+    article_exact: string;
+    legal_standard: string;
+    period_effective: string;
+  };
+  cause: {
+    root_failure: string;
+    control_deviation_type: string;
+    intentionality: 'DELIBERADA_COLUSION' | 'NEGLIGENCIA_GRAVE' | 'FALLA_SISTEMICA';
+  };
+  effect: {
+    estimated_damage_local: number;
+    estimated_damage_usd: number;
+    qualitative_impact: string;
+    penal_or_administrative_risk: string;
+  };
+  recommendation: {
+    immediate_action: string;
+    structural_correction: string;
+    sanctions_proposed: string;
+  };
+}
+
+export interface AuditWorkpaper {
+  id: string;
+  workpaper_code: string;
+  title: string;
+  audit_type: 'FINANCIERA_ISSAI_200' | 'GESTION_ISSAI_300' | 'SISTEMAS_ISSAI_400' | 'INTEGRAL_FORENSE';
+  risk_level: 'CRITICO' | 'ALTO' | 'MEDIO' | 'BAJO';
+  status: 'BORRADOR' | 'EN_REVISION' | 'SUPERVISADO' | 'VALIDADO_SIGNOFF' | 'DESCARTADO';
+  scope_entity: string;
+  scope_period: string;
+  country: string;
+  assigned_auditor: string;
+  reviewing_supervisor: string;
+  sign_off_date?: string;
+  sign_off_hash?: string;
+  procedure_tests: ProcedureTest[];
+  finding_sheet: FindingSheet;
+  coaching_notes: CoachingNote[];
+  traceability: {
+    source_file: string;
+    portal_origin: string;
+    sha256: string;
+    archive_token: string;
+    timestamp: string;
+    verified_immutable: boolean;
+  };
+}
+
 
 

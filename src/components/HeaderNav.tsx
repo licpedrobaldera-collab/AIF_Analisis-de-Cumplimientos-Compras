@@ -282,6 +282,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
         {[
           { id: 'dashboard', label: 'Dashboard & Procesos (10 Años)', icon: '📊' },
           { id: 'historicalAudits', label: 'Carpeta: Hallazgos Históricos', icon: '📁' },
+          { id: 'workpapers', label: 'Papeles de Trabajo & Ficha Forense', icon: '📋' },
           { id: 'analyzer', label: 'Peritaje Forense con IA', icon: '🔍' },
           { id: 'editor', label: 'Informe Word & PDF Autenticado', icon: '📝' },
           { id: 'prefill', label: 'Prellenado & Pólizas de Licitación', icon: '📑' },
