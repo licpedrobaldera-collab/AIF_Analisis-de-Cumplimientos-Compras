@@ -131,3 +131,56 @@ export interface ThreatEngineOutput {
   plazo_dias_otorgado: number;
   plazo_minimo_legal: number;
 }
+
+export interface RealtimeCollusionAlert {
+  id: string;
+  timestamp: string;
+  tenderCode: string;
+  tenderTitle: string;
+  entity: string;
+  country: CountryCode;
+  countryName: string;
+  collusionType: 'Ofertas Sombra / Cobertura' | 'Rotación de Licitadores' | 'Metadatos Idénticos' | 'Repartición de Mercado / Subcontratación Encubierta' | 'Precios Correlacionados';
+  severity: 'CRITICO' | 'ALTO';
+  infringedLaw: string;
+  lawArticle: string;
+  rectorEntity: string;
+  evidenceDetail: string;
+  biddersInvolved: string[];
+  estimatedImpact: number;
+  currency: CurrencyCode;
+  read: boolean;
+}
+
+export interface HistoricalAuditRecord {
+  id: string;
+  sourceOrgan: 'Cámara de Cuentas' | 'Contraloría General' | 'DGCP' | 'Auditoría Externa Privada / ONG' | 'GAO / OIG USA' | 'Contraloría General Colombia' | 'ASF México';
+  entityAudited: string;
+  entityType: 'Pública / Gobierno Central' | 'Pública / Descentralizada' | 'Ayuntamiento / Municipio' | 'ONG / Fundación' | 'Privada / Corporativa' | 'Pública / Federal USA';
+  country: CountryCode;
+  countryName: string;
+  auditNumber: string;
+  title: string;
+  auditPeriod: string;
+  publicationDate: string;
+  legalBasis: string;
+  totalAmountAudited: number;
+  totalFindingsAmount: number;
+  currency: CurrencyCode;
+  riskRating: 'Crítico' | 'Alto' | 'Medio' | 'Bajo';
+  status: 'Publicada Oficial' | 'Remitida a PEPCA / MP' | 'Juicio de Cuentas' | 'Plan de Mejora en Ejecución';
+  officialReportUrl?: string;
+  documentFileName?: string;
+  executiveSummary: string;
+  findings: ForensicFinding[];
+  financialDiscrepancies: {
+    concept: string;
+    amount: number;
+    description: string;
+    infringedArticle: string;
+  }[];
+  officialsResponsible?: string[];
+  recurrentVendorsInvolved?: string[];
+}
+
+

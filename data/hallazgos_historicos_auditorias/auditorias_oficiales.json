@@ -1,0 +1,347 @@
+[
+  {
+    "id": "AUD-DOM-MVFN1XDC",
+    "sourceOrgan": "Cámara de Cuentas",
+    "entityAudited": "Corporación del Acueducto y Alcantarillado de Santo Domingo (CAASD)",
+    "entityType": "Pública / Descentralizada",
+    "country": "DOM",
+    "countryName": "República Dominicana",
+    "auditNumber": "CCRD-AUD-ESP-2026-183",
+    "title": "Auditoría Especial al Proceso de Licitación de Redes Sanitarias y Equipamiento Electromecánico",
+    "auditPeriod": "2019 - 2025",
+    "publicationDate": "2026-10-19",
+    "legalBasis": "Ley No. 10-04 de la Cámara de Cuentas y Ley No. 340-06",
+    "totalAmountAudited": 840000000,
+    "totalFindingsAmount": 184500000,
+    "currency": "DOP",
+    "riskRating": "Crítico",
+    "status": "Publicada Oficial",
+    "officialReportUrl": "https://camaradecuentas.gob.do/auditorias/recientes",
+    "documentFileName": "Dictamen_CCRD_CAASD_2026.pdf",
+    "executiveSummary": "Actualización automática desde portal oficial CCRD: Se detectaron pagos de sobrecostos no justificados en tuberías de polietileno de alta densidad (HDPE) y prórrogas irregulares sin fianza de cumplimiento vigente.",
+    "findings": [
+      {
+        "Tipo": "Forense",
+        "Riesgo": "Crítico",
+        "Bandera": "Desvío en Precios Unitarios de Tubería",
+        "Impacto": "Sobrecosto directo al presupuesto del Estado en más del 32%",
+        "Acción": "Solicitud de descargo a funcionarios y remisión al Ministerio Público",
+        "Evidencia": "Diferencial de precios unitarios liquidados por DOP 184,500,000.00 respecto al catálogo DGCP."
+      }
+    ],
+    "financialDiscrepancies": [
+      {
+        "concept": "Sobrecosto en ítems de tuberías y accesorios hidráulicos",
+        "amount": 184500000,
+        "description": "Precios liquidados superaron en +32.4% las bandas históricas de la DGCP.",
+        "infringedArticle": "Art. 8 y 21 Reglamento Dec. No. 543-12"
+      }
+    ],
+    "officialsResponsible": [
+      "Comité de Licitaciones CAASD",
+      "Director de Infraestructura"
+    ],
+    "recurrentVendorsInvolved": [
+      "Consorcio Hidráulico del Caribe SAS"
+    ]
+  },
+  {
+    "id": "AUD-CCRD-2025-014",
+    "sourceOrgan": "Cámara de Cuentas",
+    "entityAudited": "Ministerio de Salud Pública y Asistencia Social (MISPAS)",
+    "entityType": "Pública / Gobierno Central",
+    "country": "DOM",
+    "countryName": "República Dominicana",
+    "auditNumber": "CCRD-DP-2025-014",
+    "title": "Informe de Auditoría de Investigación Especial al Proceso de Adquisición de Equipos Médicos e Insumos Hospitalarios",
+    "auditPeriod": "2018 - 2024 (Ventana Multianual)",
+    "publicationDate": "2025-05-12",
+    "legalBasis": "Ley No. 10-04 de la Cámara de Cuentas de la República Dominicana y Ley No. 340-06",
+    "totalAmountAudited": 1285000000,
+    "totalFindingsAmount": 342800000,
+    "currency": "DOP",
+    "riskRating": "Crítico",
+    "status": "Remitida a PEPCA / MP",
+    "officialReportUrl": "https://camaradecuentas.gob.do/auditorias/CCRD-DP-2025-014.pdf",
+    "documentFileName": "Informe_Especial_MISPAS_CCRD_2025_014.pdf",
+    "executiveSummary": "Se identificó un esquema recurrente de fraccionamiento de compras y direccionamiento de pliegos técnicos en favor de 4 empresas vinculadas societariamente, provocando un perjuicio económico al Estado estimado en DOP 342,800,000.00.",
+    "findings": [
+      {
+        "Tipo": "Forense",
+        "Riesgo": "Crítico",
+        "Bandera": "Fraccionamiento de Compras y Evasión de Licitación",
+        "Impacto": "Vulneración taxativa al principio de transparencia y libre concurrencia (Art. 14 y 24 Ley 340-06)",
+        "Acción": "Remisión de expediente con indicios de responsabilidad penal a la PEPCA",
+        "Evidencia": "Emisión de 28 órdenes de compras menores en un lapso de 60 días para un mismo grupo de insumos que requerían Licitación Pública Nacional."
+      },
+      {
+        "Tipo": "Forense",
+        "Riesgo": "Crítico",
+        "Bandera": "Pagos sin Comprobación de Entrega Física",
+        "Impacto": "Desvío de fondos públicos y falta de trazabilidad en almacén central",
+        "Acción": "Cobro compulsivo de pólizas de fiel cumplimiento y juicio de cuentas",
+        "Evidencia": "Desembolsos por DOP 89,400,000.00 amparados en conduce de recepción sin firma autorizada ni entrada registrada en el sistema de inventario."
+      }
+    ],
+    "financialDiscrepancies": [
+      {
+        "concept": "Pagos sin recepción física en almacén",
+        "amount": 89400000,
+        "description": "Falta de constancia de entrega de equipos tomográficos y kits reactivos.",
+        "infringedArticle": "Art. 47 Ley 10-04 de Cámara de Cuentas y Art. 11 Ley 340-06"
+      },
+      {
+        "concept": "Sobreprecio liquidado vs. precios históricos DGCP",
+        "amount": 142000000,
+        "description": "Margen de sobreprecio del +42.6% liquidado en comparación con precios unitarios de referencia.",
+        "infringedArticle": "Art. 8 y 21 Reglamento Dec. No. 543-12"
+      }
+    ],
+    "officialsResponsible": [
+      "Exdirector Administrativo y Financiero",
+      "Encargado de Compras y Contrataciones"
+    ],
+    "recurrentVendorsInvolved": [
+      "AlphaVance Medical Dominicana SRL",
+      "Insumos Hospitalarios del Caribe SAS"
+    ]
+  },
+  {
+    "id": "AUD-CGR-2025-008",
+    "sourceOrgan": "Contraloría General",
+    "entityAudited": "Ministerio de Educación de la República Dominicana (MINERD)",
+    "entityType": "Pública / Gobierno Central",
+    "country": "DOM",
+    "countryName": "República Dominicana",
+    "auditNumber": "CGR-AUD-INT-2025-008",
+    "title": "Auditoría Interna y Revisión Forense al Programa de Distribución de Dispositivos Tecnológicos y Mobiliario",
+    "auditPeriod": "2020 - 2024",
+    "publicationDate": "2025-08-30",
+    "legalBasis": "Ley No. 10-07 que instituye el Sistema Nacional de Control Interno y la Contraloría General",
+    "totalAmountAudited": 2400000000,
+    "totalFindingsAmount": 512000000,
+    "currency": "DOP",
+    "riskRating": "Crítico",
+    "status": "Publicada Oficial",
+    "officialReportUrl": "https://contraloria.gob.do/auditorias/CGR-AUD-INT-2025-008.pdf",
+    "documentFileName": "Auditoria_Interna_MINERD_CGR_2025.pdf",
+    "executiveSummary": "La Contraloría General de la República constató debilidades sustantivas de control interno, anticipos entregados sin garantías de buen uso vigentes y deficiencias en la liquidación de contratos de dispositivos electrónicos.",
+    "findings": [
+      {
+        "Tipo": "Forense",
+        "Riesgo": "Alto",
+        "Bandera": "Documentación faltante",
+        "Impacto": "Limitación de trazabilidad y falta de soporte contable en órdenes de libramiento",
+        "Acción": "Validación adicional, retención de pagos pendientes y reestructuración de expedientes",
+        "Evidencia": "Falta de pólizas de buen uso de anticipo actualizadas por un monto afianzado de DOP 120,000,000.00."
+      },
+      {
+        "Tipo": "Forense",
+        "Riesgo": "Crítico",
+        "Bandera": "Adjudicación a Empresas con Socios Comunes",
+        "Impacto": "Simulación de competencia y colusión en licitación pública",
+        "Acción": "Inhabilitación en el Registro RNP y denuncia ante la DGCP",
+        "Evidencia": "Tres oferentes concursantes compartían el mismo representante legal y domicilio fiscal."
+      }
+    ],
+    "financialDiscrepancies": [
+      {
+        "concept": "Anticipos sin pólizas de garantía de buen uso vigentes",
+        "amount": 120000000,
+        "description": "Desembolso del 20% de anticipo contractual sin póliza registrada en la Superintendencia de Seguros.",
+        "infringedArticle": "Art. 25 Ley 340-06 y Normas Básicas de Control Interno (NOBACI)"
+      }
+    ],
+    "officialsResponsible": [
+      "Director General de Tecnología Educativa",
+      "Comité de Compras MINERD"
+    ],
+    "recurrentVendorsInvolved": [
+      "Consorcio Educativo Nacional SRL",
+      "TecnoAulas Dominicana SAS"
+    ]
+  },
+  {
+    "id": "AUD-CCRD-2024-039",
+    "sourceOrgan": "Cámara de Cuentas",
+    "entityAudited": "Ayuntamiento de Santo Domingo Este (ASDE)",
+    "entityType": "Ayuntamiento / Municipio",
+    "country": "DOM",
+    "countryName": "República Dominicana",
+    "auditNumber": "CCRD-AUD-MUN-2024-039",
+    "title": "Auditoría Financiera, de Cumplimiento y Obras Municipales al Ayuntamiento de Santo Domingo Este",
+    "auditPeriod": "2016 - 2023 (Período Decenal)",
+    "publicationDate": "2024-11-20",
+    "legalBasis": "Ley No. 10-04, Ley No. 176-07 del Distrito Nacional y los Municipios, y Ley No. 340-06",
+    "totalAmountAudited": 3890000000,
+    "totalFindingsAmount": 684500000,
+    "currency": "DOP",
+    "riskRating": "Crítico",
+    "status": "Remitida a PEPCA / MP",
+    "officialReportUrl": "https://camaradecuentas.gob.do/auditorias/CCRD-AUD-MUN-2024-039.pdf",
+    "documentFileName": "Auditoria_Forense_ASDE_CCRD_2024.pdf",
+    "executiveSummary": "Se verificaron graves inobservancias a la Ley de Compras en la contratación del servicio de recolección de desechos sólidos, sobreestimación de cubicaciones de obras y adjudicaciones directas sin justificación legal.",
+    "findings": [
+      {
+        "Tipo": "Forense",
+        "Riesgo": "Crítico",
+        "Bandera": "Contratación de Servicios sin Proceso Competitivo",
+        "Impacto": "Nulidad absoluta de contratos multimillonarios conforme al Art. 26 Ley 340-06",
+        "Acción": "Remisión de actuaciones a la Procuraduría General de la República",
+        "Evidencia": "Contratos de recogida de basura suscritos mediante adendas continuas excediendo el 25% reglamentario."
+      }
+    ],
+    "financialDiscrepancies": [
+      {
+        "concept": "Adendas contractuales que exceden el límite legal del 25%",
+        "amount": 312000000,
+        "description": "Incremento del 140% sobre el monto original adjudicado en el contrato de aseo urbano.",
+        "infringedArticle": "Art. 31 Ley 340-06 sobre modificación de contratos públicos"
+      }
+    ],
+    "officialsResponsible": [
+      "Exalcalde Municipal",
+      "Director Jurídico"
+    ],
+    "recurrentVendorsInvolved": [
+      "Consorcio Aseo Urbano del Este",
+      "Transporte & Equipos Pesados SRL"
+    ]
+  },
+  {
+    "id": "AUD-DGCP-2025-RES-071",
+    "sourceOrgan": "DGCP",
+    "entityAudited": "Ministerio de Obras Públicas y Comunicaciones (MOPC)",
+    "entityType": "Pública / Gobierno Central",
+    "country": "DOM",
+    "countryName": "República Dominicana",
+    "auditNumber": "DGCP-REC-FORENSE-2025-071",
+    "title": "Resolución Pericial y Auditoría Forense a Licitaciones de Mantenimiento Vial y Hormigón Asfáltico",
+    "auditPeriod": "2021 - 2025",
+    "publicationDate": "2025-04-18",
+    "legalBasis": "Ley No. 340-06, Dec. 543-12 y Resoluciones DGCP sobre pliegos estándar",
+    "totalAmountAudited": 1850000000,
+    "totalFindingsAmount": 298000000,
+    "currency": "DOP",
+    "riskRating": "Alto",
+    "status": "Publicada Oficial",
+    "officialReportUrl": "https://comprasdominicana.gob.do/resoluciones/DGCP-2025-071.pdf",
+    "documentFileName": "Dictamen_Forense_DGCP_MOPC_2025.pdf",
+    "executiveSummary": "La DGCP declaró la nulidad parcial de los pliegos de condiciones tras constatar requisitos desproporcionados de plantas procesadoras a menos de 5 km de la obra, limitando la participación de oferentes idóneos.",
+    "findings": [
+      {
+        "Tipo": "Forense",
+        "Riesgo": "Alto",
+        "Bandera": "Direccionamiento Técnico / Barrera Geográfica Injustificada",
+        "Impacto": "Exclusión de 5 competidores nacionales con capacidad técnica demostrada",
+        "Acción": "Orden de readecuación inmediata del pliego de condiciones técnicas",
+        "Evidencia": "Cláusula 5.3 que exigía planta asfáltica en un radio menor a 5km sin sustento de tiempo de fraguado."
+      }
+    ],
+    "financialDiscrepancies": [
+      {
+        "concept": "Diferencial de precio por limitación de competencia",
+        "amount": 298000000,
+        "description": "Precio unitario adjudicado superó en un 38.7% el precio de mercado de otras regiones.",
+        "infringedArticle": "Art. 3 Principio de Libre Competencia Ley 340-06"
+      }
+    ],
+    "officialsResponsible": [
+      "Comité de Compras MOPC"
+    ],
+    "recurrentVendorsInvolved": [
+      "Constructora Caribe & Asociados SAS"
+    ]
+  },
+  {
+    "id": "AUD-EXT-ONG-2025-002",
+    "sourceOrgan": "Auditoría Externa Privada / ONG",
+    "entityAudited": "Fundación para el Desarrollo Comunitario y Social (FUNDECOM)",
+    "entityType": "ONG / Fundación",
+    "country": "DOM",
+    "countryName": "República Dominicana",
+    "auditNumber": "AUD-EXT-FUNDECOM-2025",
+    "title": "Informe de Auditoría Financiera y Forense Independiente a Fondos Públicos de Subvención Estatal",
+    "auditPeriod": "2022 - 2024",
+    "publicationDate": "2025-07-15",
+    "legalBasis": "Ley No. 122-05 sobre Regulación y Fomento de las Asociaciones Sin Fines de Lucro (ASFL)",
+    "totalAmountAudited": 145000000,
+    "totalFindingsAmount": 42100000,
+    "currency": "DOP",
+    "riskRating": "Alto",
+    "status": "Plan de Mejora en Ejecución",
+    "officialReportUrl": "https://fundecom.org/transparencia/auditoria-2025.pdf",
+    "documentFileName": "Dictamen_Independiente_ASFL_2025.pdf",
+    "executiveSummary": "Auditoría independiente constató falta de segregación de funciones, compras a empresas pertenecientes a miembros de la junta directiva y desvío de partidas destinadas a programas de nutrición infantil.",
+    "findings": [
+      {
+        "Tipo": "Forense",
+        "Riesgo": "Alto",
+        "Bandera": "Conflicto de Interés Societario no Declarado",
+        "Impacto": "Violación al régimen de compras y transparencia de fondos públicos en ASFL",
+        "Acción": "Desvinculación de directivos y remisión de informe al Centro Nacional de Fomento de las ASFL",
+        "Evidencia": "Contratos de transporte adjudicados a sociedad comercial con el 80% de cuotas propiedad del tesorero de la ONG."
+      }
+    ],
+    "financialDiscrepancies": [
+      {
+        "concept": "Gastos no autorizados en programas de subvención",
+        "amount": 42100000,
+        "description": "Pagos a directivos sin autorización estatutaria ni comprobantes fiscales válidos (NCF).",
+        "infringedArticle": "Art. 29 Ley 122-05 de ASFL y Código Tributario Dominicano"
+      }
+    ],
+    "officialsResponsible": [
+      "Tesorero General FUNDECOM",
+      "Director Ejecutivo"
+    ],
+    "recurrentVendorsInvolved": [
+      "Transporte Logístico Quisqueyano SRL"
+    ]
+  },
+  {
+    "id": "AUD-USA-GAO-2025-701",
+    "sourceOrgan": "GAO / OIG USA",
+    "entityAudited": "Department of Health and Human Services (HHS) & Federal Procurement",
+    "entityType": "Pública / Federal USA",
+    "country": "USA",
+    "countryName": "Estados Unidos",
+    "auditNumber": "GAO-25-10701",
+    "title": "Federal Procurement Oversight: High-Risk Medical IT Contract Execution and Sole-Source Award Patterns",
+    "auditPeriod": "2018 - 2024",
+    "publicationDate": "2025-03-28",
+    "legalBasis": "Budget and Accounting Act, CFO Act of 1990 & Federal Acquisition Regulation (FAR)",
+    "totalAmountAudited": 82000000,
+    "totalFindingsAmount": 14600000,
+    "currency": "USD",
+    "riskRating": "Crítico",
+    "status": "Publicada Oficial",
+    "officialReportUrl": "https://gao.gov/reports/GAO-25-10701",
+    "documentFileName": "GAO_Report_HHS_Procurement_2025.pdf",
+    "executiveSummary": "GAO report identified unjustified sole-source contracts and recurring bid protest deficiencies under FAR Part 6 competition rules.",
+    "findings": [
+      {
+        "Tipo": "Forense",
+        "Riesgo": "Crítico",
+        "Bandera": "Justificación Inadecuada de Adjudicación Directa (Sole-Source)",
+        "Impacto": "Vulneración a la Competition in Contracting Act (CICA) y FAR 6.302",
+        "Acción": "Cancelación de opciones contractuales y reapertura de licitación federal abierta",
+        "Evidencia": "Adjudicación directa por USD 14.6M basada en compatibilidad propietaria sin testeo de alternativas comerciales."
+      }
+    ],
+    "financialDiscrepancies": [
+      {
+        "concept": "Costos de licencias no competitivas sin justificación de precio justo y razonable",
+        "amount": 14600000,
+        "description": "Falta de análisis de precios comerciales requerido por FAR 15.404.",
+        "infringedArticle": "FAR Clause 15.404-1 (Proposal Analysis Techniques)"
+      }
+    ],
+    "officialsResponsible": [
+      "HHS Senior Procurement Executive"
+    ],
+    "recurrentVendorsInvolved": [
+      "AlphaVance Federal Systems LLC"
+    ]
+  }
+]

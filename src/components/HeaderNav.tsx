@@ -13,7 +13,9 @@ import {
   CheckCircle2, 
   AlertTriangle,
   RefreshCw,
-  Server
+  Server,
+  Bell,
+  AlertOctagon
 } from 'lucide-react';
 import { CountryCode, CurrencyCode, LanguageCode, UserRole } from '../types';
 import { COUNTRY_LEGAL_CONFIGS } from '../data/forensicPresets';
@@ -35,6 +37,8 @@ interface HeaderNavProps {
   syncing: boolean;
   activeTab: string;
   setActiveTab: (tab: string) => void;
+  onOpenNotifications: () => void;
+  unreadAlertsCount: number;
 }
 
 export const HeaderNav: React.FC<HeaderNavProps> = ({
@@ -54,6 +58,8 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
   syncing,
   activeTab,
   setActiveTab,
+  onOpenNotifications,
+  unreadAlertsCount,
 }) => {
   const [showMfaModal, setShowMfaModal] = useState(false);
   const [mfaCode, setMfaCode] = useState('749 203');
@@ -133,6 +139,25 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
           >
             <KeyRound className="w-3.5 h-3.5 text-emerald-400" />
             <span>MFA: <strong className="text-emerald-400">ACTIVO</strong></span>
+          </button>
+
+          {/* Real-Time Collusion Notifications Button */}
+          <button
+            onClick={onOpenNotifications}
+            className="relative flex items-center gap-1.5 bg-rose-950/40 hover:bg-rose-900/60 border border-rose-800/60 text-rose-300 px-2.5 py-1 rounded-md text-[11px] font-semibold transition-colors"
+            title="Ver Centro de Alertas de Colusión en Tiempo Real"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
+            </span>
+            <Bell className="w-3.5 h-3.5 text-rose-400" />
+            <span>COLUSIÓN EN VIVO</span>
+            {unreadAlertsCount > 0 && (
+              <span className="ml-0.5 px-1.5 py-0.2 rounded-full bg-rose-600 text-white font-mono text-[9px] font-bold">
+                {unreadAlertsCount}
+              </span>
+            )}
           </button>
         </div>
       </div>
@@ -256,6 +281,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
       <div className="px-4 flex overflow-x-auto gap-1 border-t border-slate-800/80 bg-slate-950/60 scrollbar-none">
         {[
           { id: 'dashboard', label: 'Dashboard & Procesos (10 Años)', icon: '📊' },
+          { id: 'historicalAudits', label: 'Carpeta: Hallazgos Históricos', icon: '📁' },
           { id: 'analyzer', label: 'Peritaje Forense con IA', icon: '🔍' },
           { id: 'editor', label: 'Informe Word & PDF Autenticado', icon: '📝' },
           { id: 'prefill', label: 'Prellenado & Pólizas de Licitación', icon: '📑' },

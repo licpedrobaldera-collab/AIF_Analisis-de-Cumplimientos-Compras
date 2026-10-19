@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { HeaderNav } from './components/HeaderNav';
 import { DashboardView } from './components/DashboardView';
 import { ForensicAnalyzerView } from './components/ForensicAnalyzerView';
@@ -6,7 +6,10 @@ import { WordEditorView } from './components/WordEditorView';
 import { PrefillAndPoliciesView } from './components/PrefillAndPoliciesView';
 import { HistoricalPriceView } from './components/HistoricalPriceView';
 import { SecurityAndSyncView } from './components/SecurityAndSyncView';
-import { CountryCode, CurrencyCode, LanguageCode, UserRole, TenderItem } from './types';
+import { HistoricalAuditsFolderView } from './components/HistoricalAuditsFolderView';
+import { NotificationCenter } from './components/NotificationCenter';
+import { CollusionToast } from './components/CollusionToast';
+import { CountryCode, CurrencyCode, LanguageCode, UserRole, TenderItem, RealtimeCollusionAlert, ForensicFinding } from './types';
 import { BASE_HALLAZGO_FORENSE, COMMON_FORENSIC_FLAGS, COUNTRY_LEGAL_CONFIGS } from './data/forensicPresets';
 import { AuditReportData } from './utils/exportWord';
 import { generateAuthenticatedPdf } from './utils/exportPdf';
@@ -22,6 +25,12 @@ export default function App() {
   const [isLinkedToUsa, setIsLinkedToUsa] = useState(true);
   const [syncing, setSyncing] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  // Real-time Collusion Notifications state
+  const [isNotificationCenterOpen, setIsNotificationCenterOpen] = useState(false);
+  const [activeCollusionToast, setActiveCollusionToast] = useState<RealtimeCollusionAlert | null>(null);
+  const [unreadAlertsCount, setUnreadAlertsCount] = useState<number>(2);
+  const seenAlertIdsRef = useRef<Set<string>>(new Set(['COL-DOM-2026-01', 'COL-DOM-2026-02']));
 
   // Tenders state
   const [tenders, setTenders] = useState<TenderItem[]>([]);
@@ -82,6 +91,34 @@ export default function App() {
     setToastMessage(msg);
     setTimeout(() => setToastMessage(null), 4000);
   };
+
+  // Poll for live collusion notifications and unread counts
+  useEffect(() => {
+    const checkCollusionNotifications = async () => {
+      try {
+        const res = await fetch('/api/notifications/collusion');
+        if (res.ok) {
+          const data = await res.json();
+          setUnreadAlertsCount(data.unreadCount || 0);
+
+          // Check if there is a new unread alert we haven't popped as toast yet
+          if (data.alerts?.length > 0) {
+            const latestUnread = data.alerts.find((a: RealtimeCollusionAlert) => !a.read && !seenAlertIdsRef.current.has(a.id));
+            if (latestUnread) {
+              seenAlertIdsRef.current.add(latestUnread.id);
+              setActiveCollusionToast(latestUnread);
+            }
+          }
+        }
+      } catch (e) {
+        console.warn('Collusion polling warning:', e);
+      }
+    };
+
+    checkCollusionNotifications();
+    const interval = setInterval(checkCollusionNotifications, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   // Fetch tenders on mount
   useEffect(() => {
@@ -160,6 +197,51 @@ export default function App() {
     showToast('Descargando PDF oficial autenticado con firma digital y hash SHA-256...');
   };
 
+  // Handler when clicking "Auditar con IA" from a live collusion notification
+  const handleAuditTenderFromNotification = (tenderCode: string, title: string, entity: string, targetCountry: CountryCode) => {
+    setCountry(targetCountry);
+    const mockTender: TenderItem = {
+      id: `TND-ALERT-${Date.now()}`,
+      code: tenderCode,
+      title: title,
+      entity: entity,
+      entityType: 'Pública / Gobierno Central',
+      country: targetCountry,
+      countryName: COUNTRY_LEGAL_CONFIGS[targetCountry].name,
+      year: 2026,
+      datePublished: new Date().toISOString().split('T')[0],
+      budget: targetCountry === 'DOM' ? 184500000 : 5000000,
+      currency: COUNTRY_LEGAL_CONFIGS[targetCountry].currency as CurrencyCode,
+      sector: 'Salud / Equipos Médicos',
+      status: 'Activo / En Recepción de Ofertas',
+      complianceScore: 38,
+      riskLevel: 'Crítico',
+      redFlagsCount: 4,
+      lawApplicable: `${COUNTRY_LEGAL_CONFIGS[targetCountry].primaryLaw} & ${COUNTRY_LEGAL_CONFIGS[targetCountry].regulation}`,
+      bidBondReq: COUNTRY_LEGAL_CONFIGS[targetCountry].bidBondDefault,
+      url: `https://portal.${targetCountry.toLowerCase()}.gov/procesos/${tenderCode}`,
+      biddersCount: 2,
+      auditStatus: 'Alerta de Colusión en Vivo',
+    };
+    setSelectedTender(mockTender);
+    setActiveTab('analyzer');
+    showToast(`Cargando expediente ${tenderCode} bajo marco legal de ${COUNTRY_LEGAL_CONFIGS[targetCountry].name}.`);
+  };
+
+  // Handler when injecting a precedent finding from the historical audits repository
+  const handleInjectFindingToAnalysis = (finding: ForensicFinding, sourceAudit: string) => {
+    setReportData((prev) => ({
+      ...prev,
+      forensicFindings: [
+        finding,
+        ...prev.forensicFindings.filter((f) => f.Bandera !== finding.Bandera),
+      ],
+      executiveSummary: `${prev.executiveSummary}\n\n[Precedente Oficial]: Incorporado hallazgo vinculante proveniente de ${sourceAudit}.`,
+    }));
+    showToast(`Hallazgo oficial de ${sourceAudit} incorporado al dictamen pericial.`);
+    setActiveTab('editor');
+  };
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
       {/* Header and Compliance Navigation */}
@@ -180,6 +262,8 @@ export default function App() {
         syncing={syncing}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
+        onOpenNotifications={() => setIsNotificationCenterOpen(true)}
+        unreadAlertsCount={unreadAlertsCount}
       />
 
       {/* Main Content Area */}
@@ -191,6 +275,15 @@ export default function App() {
             currency={currency}
             onSelectTenderForAudit={handleSelectTenderForAudit}
             onGoToEditorWithTender={handleGoToEditorWithTender}
+          />
+        )}
+
+        {activeTab === 'historicalAudits' && (
+          <HistoricalAuditsFolderView
+            country={country}
+            currency={currency}
+            onInjectFindingToAnalysis={handleInjectFindingToAnalysis}
+            onSelectTenderForAudit={handleAuditTenderFromNotification}
           />
         )}
 
@@ -237,9 +330,44 @@ export default function App() {
         )}
       </main>
 
-      {/* Toast Notification */}
-      {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 bg-slate-900 border border-amber-500/40 text-slate-100 px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 text-xs font-mono animate-in slide-in-from-bottom duration-300">
+      {/* Notification Center Slide-over Modal */}
+      <NotificationCenter
+        country={country}
+        currency={currency}
+        isOpen={isNotificationCenterOpen}
+        onClose={() => setIsNotificationCenterOpen(false)}
+        onAuditTenderFromNotification={handleAuditTenderFromNotification}
+        onNewAlertReceived={(alert) => {
+          setActiveCollusionToast(alert);
+        }}
+      />
+
+      {/* Real-time Collusion Pop-up Toast */}
+      {activeCollusionToast && (
+        <div className="fixed bottom-6 right-6 z-50 animate-in slide-in-from-bottom duration-300">
+          <CollusionToast
+            alert={activeCollusionToast}
+            onDismiss={() => setActiveCollusionToast(null)}
+            onViewDetails={() => {
+              setActiveCollusionToast(null);
+              setIsNotificationCenterOpen(true);
+            }}
+            onAudit={() => {
+              handleAuditTenderFromNotification(
+                activeCollusionToast.tenderCode,
+                activeCollusionToast.tenderTitle,
+                activeCollusionToast.entity,
+                activeCollusionToast.country
+              );
+              setActiveCollusionToast(null);
+            }}
+          />
+        </div>
+      )}
+
+      {/* Standard Status Toast Notification */}
+      {toastMessage && !activeCollusionToast && (
+        <div className="fixed bottom-6 right-6 z-40 bg-slate-900 border border-amber-500/40 text-slate-100 px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 text-xs font-mono animate-in slide-in-from-bottom duration-300">
           <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
           <span>{toastMessage}</span>
         </div>
